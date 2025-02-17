@@ -1,0 +1,92 @@
+/* ---------------------------------------
+   1) Custom Fonts
+   ---------------------------------------
+   The fonts are located in the "fonts/Gineso" folder.
+   Since this CSS file is in "css/", we go one level up with "../"
+------------------------------------------ */
+@font-face {
+    font-family: "GinesoCondBlack";
+    src: url("../fonts/Gineso/GinesoCondBlack.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "GinesoCondMedium";
+    src: url("../fonts/Gineso/GinesoCondMedium.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* ---------------------------------------
+     2) Global Reset & Basic Setup
+  ------------------------------------------ */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    /* Use GinesoCondMedium for all body text */
+    font-family: "GinesoCondMedium", "Helvetica Neue", Arial, sans-serif;
+    background-color: #111; /* Dark background */
+    color: #333;
+  }
+  
+  /* ---------------------------------------
+     3) Full-Screen Hero Section
+     - Fills the entire viewport
+     - Centers content both horizontally & vertically
+  ------------------------------------------ */
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;  /* full screen height */
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* ---------------------------------------
+     4) Container for Shuffling Text
+  ------------------------------------------ */
+  #shuffle-container {
+    display: inline-block;
+  }
+  
+  /* ---------------------------------------
+     5) Line Styling
+     - Each line is a block element, ensuring vertical stacking.
+     - white-space: nowrap prevents the letters from wrapping.
+  ------------------------------------------ */
+  .line {
+    display: block;
+    white-space: nowrap;
+    margin: 1rem 0;
+  }
+  
+  /* Normal lines: smaller font, off-white color */
+  .line.normal {
+    font-size: 1.5rem;
+    color: #7f7f7f;
+    line-height: 100%;
+  }
+  
+  /* Highlight line ("Arnav Pant"): larger font, pure white, using GinesoCondBlack */
+  .line.highlight {
+    font-family: "GinesoCondBlack", "Helvetica Neue", Arial, sans-serif;
+    font-size: 10rem;
+    color: #ffffff;
+    line-height: 100%;
+  }
+  
+  /* ---------------------------------------
+     6) Individual Letter Styling
+     - Each letter is inline-block with a small margin to avoid collisions.
+  ------------------------------------------ */
+  .letter {
+    display: inline-block;
+    margin: 0 0.02em;
+  }
+  

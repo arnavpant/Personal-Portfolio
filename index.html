@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arnav Pant - Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- HERO SECTION (fullscreen) -->
+  <section class="hero">
+    <!-- Container for the shuffling text -->
+    <div id="shuffle-container"></div>
+  </section>
+
+  <!-- JavaScript for per-letter timing shuffling effect -->
+  <script>
+    // All possible characters for shuffling
+    const lettersSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    // Define lines with text, style, and a letterDelay (in ms) for each letter.
+    // For example, for normal lines we use 100ms per letter, and for the highlight ("Arnav Pant") we use 150ms per letter.
+    const lines = [
+      { text: "My name is", style: "normal", letterDelay: 100 },
+      { text: "Arnav Pant", style: "highlight", letterDelay: 150 },
+      { text: "Computer Science major at Virginia Tech", style: "normal", letterDelay: 100 },
+      { text: "And this is my personal portfolio", style: "normal", letterDelay: 100 }
+    ];
+
+    const container = document.getElementById('shuffle-container');
+
+    // Create a div for each line and wrap every character in its own span.
+    lines.forEach(line => {
+      const lineDiv = document.createElement('div');
+      lineDiv.classList.add('line', line.style);
+
+      // Store the start time for this line.
+      const startTime = Date.now();
+
+      // For each letter in the line, create a span.
+      Array.from(line.text).forEach((char, index) => {
+        const span = document.createElement('span');
+        span.classList.add('letter');
+        span.setAttribute('data-final', char);
+        // Calculate lock time for this letter (position-based)
+        span.setAttribute('data-locktime', (index + 1) * line.letterDelay);
+        if (char === ' ') {
+          span.innerHTML = '&nbsp;';
+        } else {
+          span.textContent = lettersSet[Math.floor(Math.random() * lettersSet.length)];
+        }
+        // Also store the start time in the span so we can reference it later.
+        span.setAttribute('data-start', startTime);
+        lineDiv.appendChild(span);
+      });
+      container.appendChild(lineDiv);
+
+      // Set up an interval for this line using a constant update frequency.
+      const updateInterval = 80; // constant update interval for shuffling
+      const lineInterval = setInterval(() => {
+        // For each letter span in this line...
+        lineDiv.querySelectorAll('.letter').forEach(span => {
+          const finalChar = span.getAttribute('data-final');
+          // For spaces, always ensure they display properly.
+          if (finalChar === ' ') {
+            span.innerHTML = '&nbsp;';
+            return;
+          }
+          // Determine elapsed time for this letter.
+          const letterStart = Number(span.getAttribute('data-start'));
+          const elapsed = Date.now() - letterStart;
+          const lockTime = Number(span.getAttribute('data-locktime'));
+          if (elapsed >= lockTime) {
+            // Lock in the final character.
+            span.textContent = finalChar;
+          } else {
+            // Otherwise, show a random character.
+            span.textContent = lettersSet[Math.floor(Math.random() * lettersSet.length)];
+          }
+        });
+        // Check if all letters in the line have locked in.
+        const allLocked = Array.from(lineDiv.querySelectorAll('.letter')).every(span => {
+          return span.textContent === span.getAttribute('data-final') || span.getAttribute('data-final') === ' ';
+        });
+        if (allLocked) {
+          clearInterval(lineInterval);
+        }
+      }, updateInterval);
+    });
+  </script>
+</body>
+</html>
