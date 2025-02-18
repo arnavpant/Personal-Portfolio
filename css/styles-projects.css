@@ -1,0 +1,123 @@
+/* ---------------------------------------
+   1) Custom Font Declaration for Header
+   (Using your existing font files)
+--------------------------------------- */
+@font-face {
+    font-family: "acherus_grotesque_-_extrabold_italic";
+    src: url("../fonts/Acherus Grotesque/acherus_grotesque_-_extrabold_italic.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* ---------------------------------------
+     2) Global Reset & Basic Body Styles
+  --------------------------------------- */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #111; /* Dark background to match the home page */
+    color: #fff;
+    font-family: "GinesoCondMedium", "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* ---------------------------------------
+     3) HERO SECTION
+     - Full-screen section with centered content.
+     - The section will maintain a similar zoom-out effect if desired.
+  --------------------------------------- */
+  .hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease-out;
+  }
+  
+  /* ---------------------------------------
+     4) PROJECTS HEADER
+     - Uses the same font style, size, and color as the final state of your card click
+     - Ensures a seamless visual transition.
+  --------------------------------------- */
+  .projects-header {
+    font-family: "acherus_grotesque_-_extrabold_italic", "Helvetica Neue", Arial, sans-serif;
+    font-size: 10rem; /* Matches the final zoom state from the card */
+    color: #ffffff;
+    white-space: nowrap;
+    margin: 2rem 0;
+  }
+  
+  /* ---------------------------------------
+     5) SCROLL INDICATOR
+     - Positioned at the bottom center of the hero section.
+     - Same style as used on the home page.
+  --------------------------------------- */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 1.5rem;
+    color: #7f7f7f;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    40% {
+      transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+      transform: translateX(-50%) translateY(-5px);
+    }
+  }
+  
+  /* ---------------------------------------
+     6) PROJECTS CONTENT SECTION
+     - Container for your project listings.
+     - Uses responsive layout.
+  --------------------------------------- */
+  .projects-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  
+  .project {
+    margin-bottom: 2rem;
+  }
+  
+  .project h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 0.5rem;
+  }
+  
+  .project p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+  }
+
+  /* ---------------------------------------
+   SCROLLBAR SETTINGS
+--------------------------------------- */
+
+html, body {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+  
+  html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none !important;
+  }
+  

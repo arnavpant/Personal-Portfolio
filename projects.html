@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects - Arnav Pant</title>
+  <link rel="stylesheet" href="css/styles-projects.css" />
+</head>
+<body>
+  <!-- Full-screen hero section -->
+  <section class="hero" id="hero">
+    <h1 class="projects-header">Projects</h1>
+    <!-- Scroll indicator at the bottom of the hero section -->
+    <div class="scroll-indicator">
+      <span class="scroll-text">scroll down</span>
+      <span class="scroll-arrow">&#8595;</span>
+    </div>
+  </section>
+
+  <!-- Projects Content Section -->
+  <section class="projects-content" id="projects-content">
+    <!-- Your project cards or content go here -->
+    <article class="project">
+      <h2>Project Title 1</h2>
+      <p>Details about Project 1.</p>
+    </article>
+    <article class="project">
+      <h2>Project Title 2</h2>
+      <p>Details about Project 2.</p>
+    </article>
+    <article class="project">
+      <h2>Project Title 3</h2>
+      <p>Details about Project 3.</p>
+    </article>
+  </section>
+
+  <!-- Optionally add a small script for scroll effects -->
+  <script>
+    // (Optional) You can add scroll effects here similar to your home page.
+    document.addEventListener("scroll", function() {
+      const hero = document.getElementById("hero");
+      const scrollPos = window.scrollY;
+      const maxScroll = 300;
+      const scale = 1 - Math.min((scrollPos / maxScroll) * 0.2, 0.2);
+      hero.style.transform = `scale(${scale})`;
+    });
+  </script>
+</body>
+</html>

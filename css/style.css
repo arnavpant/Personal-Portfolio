@@ -15,6 +15,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "acherus_grotesque_-_extrabold_italic";
+  src: url("../fonts/Acherus Grotesque/acherus_grotesque_-_extrabold_italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -79,7 +86,7 @@ body {
 }
 
 /* ---------------------------------------
-   ABOUT SECTION
+   4) ABOUT SECTION
    - Same background as hero for a seamless transition
    - Initially hidden (opacity: 0) and will fade in on scroll
 --------------------------------------- */
@@ -91,7 +98,6 @@ body {
   color: #fff;
 }
 
-/* Adjust about-content so the image is flush left and text on the right */
 .about-content {
   width: 100%;
   display: flex;
@@ -103,14 +109,12 @@ body {
   margin: 0 auto; /* Center the container horizontally */
 }
 
-/* About image styling */
 .about-image {
   width: 40%; /* Adjust percentage as needed */
   height: auto;
   border-radius: 10px;
 }
 
-/* About text styling */
 .about-text {
   width: 60%; /* Adjust as needed */
 }
@@ -125,7 +129,6 @@ body {
   line-height: 1.6;
 }
 
-
 /* ---------------------------------------
    5) SHUFFLING TEXT STYLING
 --------------------------------------- */
@@ -135,19 +138,42 @@ body {
   margin: 1rem 0;
 }
 
-/* Normal lines: smaller font, off-white color */
+/* Normal lines: responsive font-size, off-white color */
 .line.normal {
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   color: #7f7f7f;
+  line-height: 100%;
+  font-family: "GinesoCondMedium", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Highlight line ("Arnav Pant"): responsive and pure white */
+.line.highlight {
+  font-family: "GinesoCondBlack", "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(8rem, 10vw, 10rem);
+  color: #ffffff;
   line-height: 100%;
 }
 
-/* Highlight line ("Arnav Pant"): larger font, pure white */
-.line.highlight {
-  font-family: "GinesoCondBlack", "Helvetica Neue", Arial, sans-serif;
-  font-size: 10rem;
-  color: #ffffff;
+/* VT line: for "Virginia Tech" with double border (white and black) */
+.line.VT {
+  font-family: "acherus_grotesque_-_extrabold_italic", "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(3rem, 4vw, 4rem);
+  color: #CF4420; /* Base fill color (can adjust if needed) */
   line-height: 100%;
+  /* Double border using text-shadow: first white, then black */
+  -webkit-text-stroke: 0; /* disable default stroke */
+  text-shadow:
+  4px 4px 0 #880000,
+     4px 4px 0 #880000,
+    4px  4px 0 #880000,
+    4px  4px 0 #880000,
+    /* white border */
+    6px 6px 0 #fff,
+     6px 6px 0 #fff,
+    6px  6px 0 #fff,
+     6px  6px 0 #fff;
+    /* black border */
+    
 }
 
 /* ---------------------------------------
@@ -157,3 +183,59 @@ body {
   display: inline-block;
   margin: 0 0.02em;
 }
+
+/* ---------------------------------------
+   CARDS SECTION
+--------------------------------------- */
+.cards-section {
+  padding: 3rem 1rem;
+  background-color: #111; /* Same dark background */
+  color: #fff;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: #111; /* Updated to match main page background */
+  border-radius: 20px;
+  padding: 2rem;
+  flex: 1 1 calc(25% - 2rem); /* Four cards per row on large screens */
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  font-family: "acherus_grotesque_-_extrabold_italic";
+  color: white;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.card h3 {
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  margin-bottom: 1rem;
+}
+
+/* ---------------------------------------
+   SCROLLBAR SETTINGS
+--------------------------------------- */
+
+html, body {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none !important;
+}
+
