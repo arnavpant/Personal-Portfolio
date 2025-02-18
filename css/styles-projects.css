@@ -1,6 +1,5 @@
 /* ---------------------------------------
    1) Custom Font Declaration for Header
-   (Using your existing font files)
 --------------------------------------- */
 @font-face {
     font-family: "acherus_grotesque_-_extrabold_italic";
@@ -10,7 +9,7 @@
   }
   
   /* ---------------------------------------
-     2) Global Reset & Basic Body Styles
+     2) Global Reset & Body Styles
   --------------------------------------- */
   * {
     margin: 0;
@@ -19,7 +18,7 @@
   }
   
   body {
-    background-color: #111; /* Dark background to match the home page */
+    background-color: #111; /* Dark background */
     color: #fff;
     font-family: "GinesoCondMedium", "Helvetica Neue", Arial, sans-serif;
     line-height: 1.6;
@@ -27,8 +26,6 @@
   
   /* ---------------------------------------
      3) HERO SECTION
-     - Full-screen section with centered content.
-     - The section will maintain a similar zoom-out effect if desired.
   --------------------------------------- */
   .hero {
     position: relative;
@@ -42,23 +39,16 @@
     transition: transform 0.3s ease-out;
   }
   
-  /* ---------------------------------------
-     4) PROJECTS HEADER
-     - Uses the same font style, size, and color as the final state of your card click
-     - Ensures a seamless visual transition.
-  --------------------------------------- */
   .projects-header {
     font-family: "acherus_grotesque_-_extrabold_italic", "Helvetica Neue", Arial, sans-serif;
-    font-size: 10rem; /* Matches the final zoom state from the card */
+    font-size: 10rem;
     color: #ffffff;
     white-space: nowrap;
     margin: 2rem 0;
   }
   
   /* ---------------------------------------
-     5) SCROLL INDICATOR
-     - Positioned at the bottom center of the hero section.
-     - Same style as used on the home page.
+     4) SCROLL INDICATOR
   --------------------------------------- */
   .scroll-indicator {
     position: absolute;
@@ -73,21 +63,13 @@
   }
   
   @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-      transform: translateX(-50%) translateY(0);
-    }
-    40% {
-      transform: translateX(-50%) translateY(-10px);
-    }
-    60% {
-      transform: translateX(-50%) translateY(-5px);
-    }
+    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+    40% { transform: translateX(-50%) translateY(-10px); }
+    60% { transform: translateX(-50%) translateY(-5px); }
   }
   
   /* ---------------------------------------
-     6) PROJECTS CONTENT SECTION
-     - Container for your project listings.
-     - Uses responsive layout.
+     5) PROJECTS CONTENT SECTION
   --------------------------------------- */
   .projects-content {
     max-width: 1200px;
@@ -95,29 +77,66 @@
     padding: 2rem 1rem;
   }
   
+  /* ---------------------------------------
+     6) PROJECT ARTICLE INITIAL STATE & Animation
+     - Each project starts with opacity 0 and translated down.
+     - When the "in-view" class is added, they fade in and slide up.
+  --------------------------------------- */
   .project {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   }
   
-  .project h2 {
+  .project.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* ---------------------------------------
+     7) PROJECT CONTENT LAYOUT (Alternating)
+  --------------------------------------- */
+  .project-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  /* Odd projects: image on left, text on right */
+  .project:nth-child(odd) .project-content {
+    flex-direction: row;
+  }
+  
+  /* Even projects: image on right, text on left */
+  .project:nth-child(even) .project-content {
+    flex-direction: row-reverse;
+  }
+  
+  /* ---------------------------------------
+     8) PROJECT IMAGE AND DESCRIPTION
+  --------------------------------------- */
+  .project-image {
+    flex: 1 1 40%;
+  }
+  
+  .project-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  .project-description {
+    flex: 1 1 55%;
+  }
+  
+  .project-description h2 {
     font-size: clamp(1.5rem, 3vw, 2rem);
     margin-bottom: 0.5rem;
   }
   
-  .project p {
+  .project-description p {
     font-size: clamp(1rem, 2.5vw, 1.2rem);
-  }
-
-  /* ---------------------------------------
-   SCROLLBAR SETTINGS
---------------------------------------- */
-
-html, body {
-    -ms-overflow-style: none !important;
-    scrollbar-width: none !important;
-  }
-  
-  html::-webkit-scrollbar, body::-webkit-scrollbar {
-    display: none !important;
   }
   

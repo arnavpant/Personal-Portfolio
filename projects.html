@@ -19,24 +19,78 @@
 
   <!-- Projects Content Section -->
   <section class="projects-content" id="projects-content">
-    <!-- Your project cards or content go here -->
+    <!-- Project 1 -->
     <article class="project">
-      <h2>Project Title 1</h2>
-      <p>Details about Project 1.</p>
+      <div class="project-content">
+        <div class="project-image">
+          <img src="images/Arnav.jpeg" alt="Personal Web and Video Server" />
+        </div>
+        <div class="project-description">
+          <h2>Personal Web and Video Server</h2>
+          <p>
+            This project involved building a personal web server capable of serving static files, streaming MP4 videos, and handling token-based authentication via JSON Web Tokens (JWT). The implementation required concurrent client handling using a thread-based or event-driven approach, as well as support for HTTP/1.1 persistent connections and secure authentication mechanisms.
+          </p>
+        </div>
+      </div>
     </article>
+    <!-- Project 2 -->
     <article class="project">
-      <h2>Project Title 2</h2>
-      <p>Details about Project 2.</p>
+      <div class="project-content">
+        <div class="project-image">
+          <img src="images/Arnav.jpeg" alt="Fork-Join Thread Pool" />
+        </div>
+        <div class="project-description">
+          <h2>Fork-Join Thread Pool</h2>
+          <p>
+            This assignment required implementing a fork-join thread pool using a work-stealing approach for parallel task execution. The project focused on optimizing resource utilization, avoiding excessive thread creation, and ensuring efficient task execution using futures and thread synchronization techniques.
+          </p>
+        </div>
+      </div>
     </article>
+    <!-- Project 3 -->
     <article class="project">
-      <h2>Project Title 3</h2>
-      <p>Details about Project 3.</p>
+      <div class="project-content">
+        <div class="project-image">
+          <img src="images/Arnav.jpeg" alt="Customizable Unix Shell" />
+        </div>
+        <div class="project-description">
+          <h2>Customizable Unix Shell</h2>
+          <p>
+            Students designed a custom shell with job control, built-in commands, and support for foreground and background process management. Additional features included signal handling, process groups, and terminal management. The shell also supported advanced functionality such as pipes, I/O redirection, and customizable extensions.
+          </p>
+        </div>
+      </div>
     </article>
   </section>
 
-  <!-- Optionally add a small script for scroll effects -->
+  <!-- Intersection Observer to trigger animation on scroll -->
   <script>
-    // (Optional) You can add scroll effects here similar to your home page.
+    // Select all project articles
+    const projects = document.querySelectorAll('.project');
+
+    // Create an IntersectionObserver
+    const observerOptions = {
+      threshold: 0.3
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Add the class that triggers the transition
+          entry.target.classList.add('in-view');
+          // Stop observing the element once it has animated
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    projects.forEach(project => {
+      observer.observe(project);
+    });
+  </script>
+  
+  <!-- Optional scroll effect similar to home page -->
+  <script>
     document.addEventListener("scroll", function() {
       const hero = document.getElementById("hero");
       const scrollPos = window.scrollY;

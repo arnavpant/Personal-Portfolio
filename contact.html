@@ -3,6 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Contact Me - Arnav Pant</title>
+  <link rel="stylesheet" href="css/styles-contact.css" />
 </head>
+<body>
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <h1 class="page-header">Contact Me</h1>
+    <div class="scroll-indicator">
+      <span class="scroll-text">scroll down</span>
+      <span class="scroll-arrow">&#8595;</span>
+    </div>
+  </section>
+
+  <!-- CONTENT SECTION -->
+  <section class="content">
+    <div class="container">
+      <form action="mailto:your.email@example.com" method="post" enctype="text/plain">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>
