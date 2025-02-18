@@ -7,6 +7,13 @@
     font-weight: normal;
     font-style: normal;
   }
+
+  @font-face {
+    font-family: "GinesoCondMedium";
+    src: url("../fonts/Gineso/GinesoCondMedium.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
   
   /* ---------------------------------------
      2) Global Reset & Body Styles
@@ -128,15 +135,36 @@
   }
   
   .project-description {
+    font-family: "GinesoCondMedium";
     flex: 1 1 55%;
   }
   
   .project-description h2 {
+    font-family: "GinesoCondMedium";
     font-size: clamp(1.5rem, 3vw, 2rem);
     margin-bottom: 0.5rem;
   }
   
   .project-description p {
+    font-family: "GinesoCondMedium";
     font-size: clamp(1rem, 2.5vw, 1.2rem);
   }
   
+  /* ---------------------------------------
+     7) SVJ CONTAINERS
+  --------------------------------------- */
+
+  .svg-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 6473px;
+  }
+
+  svg{
+    height: 100%;
+  }

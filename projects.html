@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="css/styles-projects.css" />
 </head>
 <body>
+
+    
   <!-- Full-screen hero section -->
   <section class="hero" id="hero">
     <h1 class="projects-header">Projects</h1>
@@ -63,6 +65,13 @@
     </article>
   </section>
 
+  <div class="svg-container">
+    <svg width="1150" height="6473" viewBox="0 0 1150 6473" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M564.5 0.5C660.973 180.081 660.973 342.919 564.5 522.5C459.381 718.174 177.342 615.601 75.4998 813C-116.257 1184.68 927.238 1635.1 1058.5 1238C1087.5 1150.26 1092.29 1094.27 1081.5 1002.5C1033.28 592.43 297.791 1072.13 121.5 1445.5C57.7801 1580.45 -15.1503 1682.06 42.9998 1819.5C85.7648 1920.58 152.632 1959.82 251 2008.5C507.881 2135.62 704.455 1605.11 943 1764C1092.06 1863.29 1165.15 1996.87 1146.5 2175C1129.15 2340.68 1041.38 2437.9 897 2521C671.716 2650.66 466.749 2275.78 241.5 2405.5C25.6333 2529.82 21.542 2835.18 1.49992 2996.5C-23.2263 3195.52 657 3319.5 657 3319.5C657 3319.5 969.856 3346.62 1026.5 3665.5C1048.58 3789.81 1074.56 3911.79 971 3984C853.999 4065.58 766.945 3875.88 624.5 3868.5C392.207 3856.47 186.633 4303.84 75.4998 4099.5C22.1364 4001.38 52.2727 3922.75 75.4998 3813.5C172.67 3356.46 1058.44 4148 971 4607C900.591 4976.59 127.318 4793.87 186 5165.5C245.763 5543.98 1072.45 5045.57 1132.5 5424C1194.58 5815.27 2.02861 5593.4 241.5 5909C334.743 6031.89 509.176 5972.06 583 6107.5C651.123 6232.49 583 6472 583 6472" stroke="white" stroke-width="5"/>
+        </svg>
+        
+    </div>
+
   <!-- Intersection Observer to trigger animation on scroll -->
   <script>
     // Select all project articles
@@ -89,15 +98,9 @@
     });
   </script>
   
-  <!-- Optional scroll effect similar to home page -->
-  <script>
-    document.addEventListener("scroll", function() {
-      const hero = document.getElementById("hero");
-      const scrollPos = window.scrollY;
-      const maxScroll = 300;
-      const scale = 1 - Math.min((scrollPos / maxScroll) * 0.2, 0.2);
-      hero.style.transform = `scale(${scale})`;
-    });
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="js/projects.js"></script>
+  
 </body>
 </html>

@@ -1,22 +1,31 @@
-$(document).ready(function () {
-  // Initial position of the line
-  var $line = $(".vertical-line");
-  var $window = $(window);
+// Register GSAP Plugins
+gsap.registerPlugin(ScrollTrigger);
 
-  // Function to update the line position on scroll
-  function updateLinePosition() {
-    var scrollPercentage =
-      ($window.scrollTop() / ($("body").height() - $window.height())) * 100;
-    var newHeight = (scrollPercentage / 100) * ($window.height() * 3.44);
+// Select the SVG path
+let svg = document.querySelector("svg");
+let path = svg.querySelector("path");
 
-    $line.css("height", newHeight + 20 + "px");
+// Get the total path length
+const pathLength = path.getTotalLength();
+
+console.log("Path Length:", pathLength); // Debugging line to check length
+
+// Set initial strokeDashArray and strokeDashOffset
+gsap.set(path, { strokeDasharray: pathLength, strokeDashoffset: pathLength });
+
+// Create the scroll-based animation
+gsap.fromTo(
+  path, 
+  { strokeDashoffset: pathLength }, 
+  {
+    strokeDashoffset: 0,
+    duration: 5,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".svg-container", // Make sure this is the right selector
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 1,
+    }
   }
-
-  // Update the line position on page load
-  updateLinePosition();
-
-  // Update the line position on scroll
-  $window.scroll(function () {
-    updateLinePosition();
-  });
-});
+);
