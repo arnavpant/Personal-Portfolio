@@ -5,8 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Resume - Arnav Pant</title>
   <link rel="stylesheet" href="css/styles-resume.css" />
+  <link rel="stylesheet" href="css/cursor-effect.css" />
 </head>
 <body>
+
+  <!-- Fixed Back Button -->
+  <a href="index.html#cards" class="back-button">Back</a>
+
+  <!-- Cursor circles/effects (if used) -->
+  <script>
+    for (let i = 0; i < 50; i++) {
+      const circle = document.createElement('div');
+      circle.className = 'circle';
+      document.body.appendChild(circle);
+    }
+  </script>
+
   <!-- HERO SECTION -->
   <section class="hero" id="hero">
     <h1 class="page-header">Resume</h1>
@@ -19,9 +33,22 @@
   <!-- CONTENT SECTION -->
   <section class="content">
     <div class="container">
-      <p>You can download my resume <a href="files/resume.pdf" target="_blank">here</a>.</p>
-      <!-- You can also display a timeline or detailed resume information here -->
+      <p>You can download my resume using the button below:</p>
+      <a href="images/resume_ArnavPant.pdf" class="download-button" download>Download Resume</a>
     </div>
   </section>
+
+  <!-- PDF DISPLAY SECTION -->
+  <section class="pdf-display">
+    <div class="container">
+      <h2>Resume Preview</h2>
+      <div class="pdf-container">
+        <iframe src="images/resume_ArnavPant.pdf" frameborder="0"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/cursor-effect.js"></script>
+
 </body>
 </html>
