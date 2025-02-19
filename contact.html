@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Me - Arnav Pant</title>
+  <title>Contact - Arnav Pant</title>
   <link rel="stylesheet" href="css/styles-contact.css" />
 </head>
 <body>
@@ -16,22 +16,21 @@
     </div>
   </section>
 
-  <!-- CONTENT SECTION -->
-  <section class="content">
-    <div class="container">
-      <form action="mailto:your.email@example.com" method="post" enctype="text/plain">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required />
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <button type="submit">Send Message</button>
-      </form>
+  <!-- CONTACT CARDS SECTION -->
+  <section class="cards-section" id="cards">
+    <div class="cards-container">
+      <div class="card" data-target="mailto:arnavpant27@gmail.com">
+        <img src="images/gmail.png" alt="Email" class="card-icon" />
+      </div>
+      <div class="card" data-target="https://www.linkedin.com/in/arnavpant/">
+        <img src="images/linkedin.png" alt="LinkedIn" class="card-icon" />
+      </div>
+      <div class="card" data-target="https://github.com/arnavpant">
+        <img src="images/github.png" alt="GitHub" class="card-icon" />
+      </div>
     </div>
   </section>
+                   
+  <script src="js/contact.js"></script>
 </body>
 </html>

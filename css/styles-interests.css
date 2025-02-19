@@ -2,97 +2,163 @@
    Base Fonts & Global Reset
 --------------------------------------- */
 @font-face {
-    font-family: "acherus_grotesque_-_extrabold_italic";
-    src: url("../fonts/Acherus Grotesque/acherus_grotesque_-_extrabold_italic.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    background-color: #111;
-    color: #fff;
-    font-family: "GinesoCondMedium", "Helvetica Neue", Arial, sans-serif;
-    line-height: 1.6;
-  }
-  
-  /* ---------------------------------------
-     HERO SECTION
-  --------------------------------------- */
-  .hero {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    text-align: center;
-    transition: transform 0.3s ease-out;
-  }
-  
-  .page-header {
-    font-family: "acherus_grotesque_-_extrabold_italic", "Helvetica Neue", Arial, sans-serif;
-    font-size: 10rem;
-    color: #ffffff;
-    white-space: nowrap;
-    margin: 2rem 0;
-  }
-  
-  /* ---------------------------------------
-     SCROLL INDICATOR
-  --------------------------------------- */
-  .scroll-indicator {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    font-size: 1.5rem;
-    color: #7f7f7f;
-    cursor: pointer;
-    animation: bounce 2s infinite;
-  }
-  
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-      transform: translateX(-50%) translateY(0);
-    }
-    40% {
-      transform: translateX(-50%) translateY(-10px);
-    }
-    60% {
-      transform: translateX(-50%) translateY(-5px);
-    }
-  }
-  
-  /* ---------------------------------------
-     CONTENT SECTION
-  --------------------------------------- */
-  .content {
-    padding: 2rem 1rem;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    font-size: clamp(1rem, 2vw, 1.2rem);
-  }
+  font-family: "acherus_grotesque_-_extrabold_italic";
+  src: url("../fonts/Acherus Grotesque/acherus_grotesque_-_extrabold_italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
 
-  /* ---------------------------------------
+@font-face {
+  font-family: "GinesoCondMedium";
+  src: url("../fonts/Gineso/GinesoCondMedium.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "acherus_grotesque_-_medium_italic";
+  src: url("../fonts/Acherus Grotesque/acherus_grotesque_-_medium_italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #111;
+  color: #fff;
+  font-family: "acherus_grotesque_-_medium_italic", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ---------------------------------------
+   HERO SECTION
+--------------------------------------- */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  transition: transform 0.3s ease-out;
+}
+
+.page-header {
+  font-family: "acherus_grotesque_-_extrabold_italic", "Helvetica Neue", Arial, sans-serif;
+  font-size: 10rem;
+  color: #ffffff;
+  white-space: nowrap;
+  margin: 2rem 0;
+}
+
+/* ---------------------------------------
+   SCROLL INDICATOR
+--------------------------------------- */
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 1.5rem;
+  color: #7f7f7f;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-10px); }
+  60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* ---------------------------------------
+   INTERESTS CONTENT SECTION
+--------------------------------------- */
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* ---------------------------------------
+   Interest Article
+--------------------------------------- */
+.interest {
+  margin-bottom: 5rem;
+  opacity: 1; /* Appearance controlled by JS/ScrollTrigger */
+}
+
+/* ---------------------------------------
+   INTEREST CONTENT LAYOUT (Alternating Layout)
+--------------------------------------- */
+.interest-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+}
+
+/* Alternating layout:
+   Odd-numbered interests: image on left, text on right.
+   Even-numbered interests: image on right, text on left.
+*/
+.interest:nth-child(odd) .interest-content {
+  flex-direction: row;
+}
+
+.interest:nth-child(even) .interest-content {
+  flex-direction: row-reverse;
+}
+
+/* ---------------------------------------
+   IMAGE STYLING
+--------------------------------------- */
+.interest-image {
+  flex: 1 1 40%;
+}
+
+.interest-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* ---------------------------------------
+   TEXT STYLING
+--------------------------------------- */
+.interest-description {
+  flex: 1 1 55%;
+  text-align: left;
+}
+
+.interest-description h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 0.5rem;
+}
+
+.interest-description p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+/* ---------------------------------------
    SCROLLBAR SETTINGS
 --------------------------------------- */
-
 html, body {
-    -ms-overflow-style: none !important;
-    scrollbar-width: none !important;
-  }
-  
-  html::-webkit-scrollbar, body::-webkit-scrollbar {
-    display: none !important;
-  }
-  
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none !important;
+}
