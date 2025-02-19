@@ -5,102 +5,206 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects - Arnav Pant</title>
   <link rel="stylesheet" href="css/styles-projects.css" />
+  <link rel="stylesheet" href="css/cursor-effect.css" />
+  <style>
+    /* Additional inline styles for TOC if needed */
+    .toc {
+      text-align: center;
+      margin: 2rem 0;
+      position: relative;
+      z-index: 100000000;
+    }
+    .toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .toc li {
+      margin: 1rem 0;
+    }
+    .toc a {
+      text-decoration: none;
+      font-family: "acherus_grotesque_-_extrabold_italic", "Helvetica Neue", Arial, sans-serif;
+      font-size: 2rem;
+      color: #fff;
+      transition: color 0.3s;
+    }
+    .toc a:hover {
+      color: #ff0000;
+    }
+  </style>
 </head>
 <body>
 
-    
-  <!-- Full-screen hero section -->
+  <a href="index.html#cards" class="back-button">Back</a>
+
+  <!-- Cursor circles/effects (if used) -->
+  <script>
+    // Create 50 circle divs dynamically for additional cursor effects
+    for (let i = 0; i < 50; i++) {
+      const circle = document.createElement('div');
+      circle.className = 'circle';
+      document.body.appendChild(circle);
+    }
+  </script>
+
+  <!-- Full-screen Hero Section -->
   <section class="hero" id="hero">
     <h1 class="projects-header">Projects</h1>
-    <!-- Scroll indicator at the bottom of the hero section -->
     <div class="scroll-indicator">
       <span class="scroll-text">scroll down</span>
       <span class="scroll-arrow">&#8595;</span>
     </div>
   </section>
 
+  <!-- Table of Contents -->
+  <nav class="toc">
+    <ul>
+      <li><a href="#project-1">Personal Web and Video Server</a></li>
+      <li><a href="#project-2">Fork-Join Thread Pool</a></li>
+      <li><a href="#project-3">Customizable Unix Shell</a></li>
+      <li><a href="#project-4">Spatial Database with Skip List &amp; PR QuadTree</a></li>
+      <li><a href="#project-5">External Quicksort with Buffer Pool Management</a></li>
+      <li><a href="#project-6">Memory Management System with Hash Table &amp; Buddy Allocation</a></li>
+    </ul>
+  </nav>
+
   <!-- Projects Content Section -->
   <section class="projects-content" id="projects-content">
-    <!-- Project 1 -->
-    <article class="project">
+    <!-- Project 1: Personal Web and Video Server  -->
+    <article class="project" id="project-1">
       <div class="project-content">
         <div class="project-image">
           <img src="images/Arnav.jpeg" alt="Personal Web and Video Server" />
         </div>
         <div class="project-description">
-          <h2>Personal Web and Video Server</h2>
+          <h2>Personal Web and Video Server <span class="course-code"></span></h2>
           <p>
-            This project involved building a personal web server capable of serving static files, streaming MP4 videos, and handling token-based authentication via JSON Web Tokens (JWT). The implementation required concurrent client handling using a thread-based or event-driven approach, as well as support for HTTP/1.1 persistent connections and secure authentication mechanisms.
+            Developed a robust personal web server capable of serving static files and streaming MP4 videos. Implemented token-based authentication using JSON Web Tokens (JWT) and engineered the system to handle multiple clients concurrently via a thread-based or event-driven approach. The server supports HTTP/1.1 persistent connections and incorporates secure authentication mechanisms to safeguard data integrity and access.
           </p>
         </div>
       </div>
     </article>
-    <!-- Project 2 -->
-    <article class="project">
+
+    <!-- Project 2: Fork-Join Thread Pool  -->
+    <article class="project" id="project-2">
       <div class="project-content">
         <div class="project-image">
           <img src="images/Arnav.jpeg" alt="Fork-Join Thread Pool" />
         </div>
         <div class="project-description">
-          <h2>Fork-Join Thread Pool</h2>
+          <h2>Fork-Join Thread Pool <span class="course-code"></span></h2>
           <p>
-            This assignment required implementing a fork-join thread pool using a work-stealing approach for parallel task execution. The project focused on optimizing resource utilization, avoiding excessive thread creation, and ensuring efficient task execution using futures and thread synchronization techniques.
+            Engineered a fork-join thread pool leveraging a work-stealing strategy for efficient parallel task execution. This project maximized resource utilization by minimizing thread overhead and implementing futures with thread synchronization techniques. The solution significantly improved task execution performance while ensuring scalability and responsiveness under heavy computational loads.
           </p>
         </div>
       </div>
     </article>
-    <!-- Project 3 -->
-    <article class="project">
+
+    <!-- Project 3: Customizable Unix Shell  -->
+    <article class="project" id="project-3">
       <div class="project-content">
         <div class="project-image">
           <img src="images/Arnav.jpeg" alt="Customizable Unix Shell" />
         </div>
         <div class="project-description">
-          <h2>Customizable Unix Shell</h2>
+          <h2>Customizable Unix Shell <span class="course-code"></span></h2>
           <p>
-            Students designed a custom shell with job control, built-in commands, and support for foreground and background process management. Additional features included signal handling, process groups, and terminal management. The shell also supported advanced functionality such as pipes, I/O redirection, and customizable extensions.
+            Designed and implemented a custom Unix shell featuring comprehensive job control and a suite of built-in commands. The shell supports both foreground and background process management and integrates advanced functionalities such as signal handling, process groups, and terminal management. It further supports pipes, I/O redirection, and extensibility for future custom commands, ensuring a versatile command-line interface.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 4: Spatial Database with Skip List & PR QuadTree -->
+    <article class="project" id="project-4">
+      <div class="project-content">
+        <div class="project-image">
+          <img src="images/Arnav.jpeg" alt="Spatial Database with Skip List &amp; PR QuadTree" />
+        </div>
+        <div class="project-description">
+          <h2>Spatial Database with Skip List &amp; PR QuadTree <span class="course-code"></span></h2>
+          <p>
+            Developed a spatial database capable of efficiently managing a collection of rectangles using a combination of advanced data structures—a Skip List for rapid insertions, deletions, and searches based on rectangle names, and a PR QuadTree to optimize spatial queries such as region searches and intersection detection. This project required the design of recursive spatial algorithms, strategic use of inheritance for tree nodes, and application of the Flyweight pattern to enhance memory efficiency.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 5: External Quicksort with Buffer Pool Management -->
+    <article class="project" id="project-5">
+      <div class="project-content">
+        <div class="project-image">
+          <img src="images/Arnav.jpeg" alt="External Quicksort with Buffer Pool Management" />
+        </div>
+        <div class="project-description">
+          <h2>External Quicksort with Buffer Pool Management <span class="course-code"></span></h2>
+          <p>
+            Implemented a modified Quicksort algorithm designed to efficiently sort large binary files by leveraging a buffer pool with Least Recently Used (LRU) caching. Operating directly on disk-based data—comprising 4-byte records stored in 4096-byte blocks—the algorithm minimizes expensive disk I/O by employing median-of-three pivot selection, hybrid sorting for small partitions, and optimized memory flushing strategies.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 6: Memory Management System with Hash Table & Buddy Allocation -->
+    <article class="project" id="project-6">
+      <div class="project-content">
+        <div class="project-image">
+          <img src="images/Arnav.jpeg" alt="Memory Management System with Hash Table &amp; Buddy Allocation" />
+        </div>
+        <div class="project-description">
+          <h2>Memory Management System with Hash Table &amp; Buddy Allocation <span class="course-code"></span></h2>
+          <p>
+            Designed and implemented a memory management system that integrates the Buddy Allocation method with a dynamic hash table employing double hashing and rehashing. This system efficiently stores and retrieves variable-length records, dynamically managing memory expansion while merging free blocks to optimize space utilization. The project demonstrates advanced expertise in data structures, memory allocation strategies, and hashing techniques.
           </p>
         </div>
       </div>
     </article>
   </section>
 
+  <!-- SVG Container (for additional visual effects) -->
   <div class="svg-container">
     <svg width="1150" height="6473" viewBox="0 0 1150 6473" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M564.5 0.5C660.973 180.081 660.973 342.919 564.5 522.5C459.381 718.174 177.342 615.601 75.4998 813C-116.257 1184.68 927.238 1635.1 1058.5 1238C1087.5 1150.26 1092.29 1094.27 1081.5 1002.5C1033.28 592.43 297.791 1072.13 121.5 1445.5C57.7801 1580.45 -15.1503 1682.06 42.9998 1819.5C85.7648 1920.58 152.632 1959.82 251 2008.5C507.881 2135.62 704.455 1605.11 943 1764C1092.06 1863.29 1165.15 1996.87 1146.5 2175C1129.15 2340.68 1041.38 2437.9 897 2521C671.716 2650.66 466.749 2275.78 241.5 2405.5C25.6333 2529.82 21.542 2835.18 1.49992 2996.5C-23.2263 3195.52 657 3319.5 657 3319.5C657 3319.5 969.856 3346.62 1026.5 3665.5C1048.58 3789.81 1074.56 3911.79 971 3984C853.999 4065.58 766.945 3875.88 624.5 3868.5C392.207 3856.47 186.633 4303.84 75.4998 4099.5C22.1364 4001.38 52.2727 3922.75 75.4998 3813.5C172.67 3356.46 1058.44 4148 971 4607C900.591 4976.59 127.318 4793.87 186 5165.5C245.763 5543.98 1072.45 5045.57 1132.5 5424C1194.58 5815.27 2.02861 5593.4 241.5 5909C334.743 6031.89 509.176 5972.06 583 6107.5C651.123 6232.49 583 6472 583 6472" stroke="white" stroke-width="5"/>
-        </svg>
-        
-    </div>
+      <path d="M564.5 0.5C660.973 180.081 660.973 342.919 564.5 522.5C459.381 718.174 177.342 615.601 75.4998 813C-116.257 1184.68 927.238 1635.1 1058.5 1238C1087.5 1150.26 1092.29 1094.27 1081.5 1002.5C1033.28 592.43 297.791 1072.13 121.5 1445.5C57.7801 1580.45 -15.1503 1682.06 42.9998 1819.5C85.7648 1920.58 152.632 1959.82 251 2008.5C507.881 2135.62 704.455 1605.11 943 1764C1092.06 1863.29 1165.15 1996.87 1146.5 2175C1129.15 2340.68 1041.38 2437.9 897 2521C671.716 2650.66 466.749 2275.78 241.5 2405.5C25.6333 2529.82 21.542 2835.18 1.49992 2996.5C-23.2263 3195.52 657 3319.5 657 3319.5C657 3319.5 969.856 3346.62 1026.5 3665.5C1048.58 3789.81 1074.56 3911.79 971 3984C853.999 4065.58 766.945 3875.88 624.5 3868.5C392.207 3856.47 186.633 4303.84 75.4998 4099.5C22.1364 4001.38 52.2727 3922.75 75.4998 3813.5C172.67 3356.46 1058.44 4148 971 4607C900.591 4976.59 127.318 4793.87 186 5165.5C245.763 5543.98 1072.45 5045.57 1132.5 5424C1194.58 5815.27 2.02861 5593.4 241.5 5909C334.743 6031.89 509.176 5972.06 583 6107.5C651.123 6232.49 583 6472 583 6472" stroke="#861F41" stroke-width="50"/>
+    </svg>
+  </div>
 
-  <!-- Intersection Observer to trigger animation on scroll -->
+  <!-- Intersection Observer for project animations -->
   <script>
-    // Select all project articles
     const projects = document.querySelectorAll('.project');
-
-    // Create an IntersectionObserver
-    const observerOptions = {
-      threshold: 0.3
-    };
-
+    const observerOptions = { threshold: 0.3 };
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Add the class that triggers the transition
           entry.target.classList.add('in-view');
-          // Stop observing the element once it has animated
           observer.unobserve(entry.target);
         }
       });
     }, observerOptions);
-
-    projects.forEach(project => {
-      observer.observe(project);
-    });
+    projects.forEach(project => observer.observe(project));
   </script>
-  
+
+  <!-- GSAP Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="js/projects.js"></script>
-  
+  <script src="js/cursor-effect.js"></script>
+
+  <!-- TOC Smooth Scrolling Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const tocLinks = document.querySelectorAll(".toc a");
+      tocLinks.forEach(link => {
+        link.addEventListener("click", function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          const targetElem = document.querySelector(targetId);
+          if (targetElem) {
+            targetElem.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

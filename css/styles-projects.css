@@ -1,170 +1,196 @@
-/* ---------------------------------------
-   1) Custom Font Declaration for Header
---------------------------------------- */
+/* Reset and Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #111;
+  color: #fff;
+  font-family: "GinesoCondMedium", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Font Declarations */
 @font-face {
-    font-family: "acherus_grotesque_-_extrabold_italic";
-    src: url("../fonts/Acherus Grotesque/acherus_grotesque_-_extrabold_italic.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-  }
+  font-family: "acherus_grotesque_-_extrabold_italic";
+  src: url("../fonts/Acherus Grotesque/acherus_grotesque_-_extrabold_italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GinesoCondMedium";
+  src: url("../fonts/Gineso/GinesoCondMedium.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
 
-  @font-face {
-    font-family: "GinesoCondMedium";
-    src: url("../fonts/Gineso/GinesoCondMedium.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  /* ---------------------------------------
-     2) Global Reset & Body Styles
-  --------------------------------------- */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    background-color: #111; /* Dark background */
-    color: #fff;
-    font-family: "GinesoCondMedium", "Helvetica Neue", Arial, sans-serif;
-    line-height: 1.6;
-  }
-  
-  /* ---------------------------------------
-     3) HERO SECTION
-  --------------------------------------- */
-  .hero {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 100%;
-    text-align: center;
-    transition: transform 0.3s ease-out;
-  }
-  
-  .projects-header {
-    font-family: "acherus_grotesque_-_extrabold_italic", "Helvetica Neue", Arial, sans-serif;
-    font-size: 10rem;
-    color: #ffffff;
-    white-space: nowrap;
-    margin: 2rem 0;
-  }
-  
-  /* ---------------------------------------
-     4) SCROLL INDICATOR
-  --------------------------------------- */
-  .scroll-indicator {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    font-size: 1.5rem;
-    color: #7f7f7f;
-    cursor: pointer;
-    animation: bounce 2s infinite;
-  }
-  
-  @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-    40% { transform: translateX(-50%) translateY(-10px); }
-    60% { transform: translateX(-50%) translateY(-5px); }
-  }
-  
-  /* ---------------------------------------
-     5) PROJECTS CONTENT SECTION
-  --------------------------------------- */
-  .projects-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-  }
-  
-  /* ---------------------------------------
-     6) PROJECT ARTICLE INITIAL STATE & Animation
-     - Each project starts with opacity 0 and translated down.
-     - When the "in-view" class is added, they fade in and slide up.
-  --------------------------------------- */
-  .project {
-    margin-bottom: 3rem;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  }
-  
-  .project.in-view {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  /* ---------------------------------------
-     7) PROJECT CONTENT LAYOUT (Alternating)
-  --------------------------------------- */
-  .project-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 2rem;
-  }
-  
-  /* Odd projects: image on left, text on right */
-  .project:nth-child(odd) .project-content {
-    flex-direction: row;
-  }
-  
-  /* Even projects: image on right, text on left */
-  .project:nth-child(even) .project-content {
-    flex-direction: row-reverse;
-  }
-  
-  /* ---------------------------------------
-     8) PROJECT IMAGE AND DESCRIPTION
-  --------------------------------------- */
-  .project-image {
-    flex: 1 1 40%;
-  }
-  
-  .project-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
-  
-  .project-description {
-    font-family: "GinesoCondMedium";
-    flex: 1 1 55%;
-  }
-  
-  .project-description h2 {
-    font-family: "GinesoCondMedium";
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    margin-bottom: 0.5rem;
-  }
-  
-  .project-description p {
-    font-family: "GinesoCondMedium";
+@font-face {
+  font-family: "acherus_grotesque_-_regular_italic";
+  src: url("../fonts/Acherus Grotesque/acherus_grotesque_-_regular_italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.3s ease-out;
+}
+.projects-header {
+  font-family: "acherus_grotesque_-_extrabold_italic", "Helvetica Neue", Arial, sans-serif;
+  font-size: 10rem;
+  color: #fff;
+  white-space: nowrap;
+  margin: 2rem 0;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 1.5rem;
+  color: #7f7f7f;
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-10px); }
+  60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+/* Table of Contents (TOC) */
+.toc {
+  text-align: center;
+  margin: 2rem 0;
+  position: relative;
+  z-index: 1; 
+}
+.toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.toc li {
+  margin: 1rem 0;
+}
+.toc a {
+  text-decoration: none;
+  font-family: "acherus_grotesque_-_extrabold_italic", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.5rem;
+  color: #fff;
+  transition: color 0.3s;
+}
+.toc a:hover {
+  color: #ff0000;
+}
+
+/* Projects Content */
+.projects-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+.project {
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.project.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.project-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+.project:nth-child(odd) .project-content {
+  flex-direction: row;
+}
+.project:nth-child(even) .project-content {
+  flex-direction: row-reverse;
+}
+.project-image {
+  flex: 1 1 40%;
+}
+.project-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.project-description {
+  flex: 1 1 55%;
+  font-family: "acherus_grotesque_-_regular_italic", "Helvetica Neue", Arial, sans-serif;
+  font-family: "GinesoCondMedium";
+}
+.project-description h2 {
+  font-family: "acherus_grotesque_-_extrabold_italic", "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(1.25rem, 3vw, 2rem);
+  margin-bottom: 0.5rem;
+}
+.project-description p {
+  font-family: "acherus_grotesque_-_regular_italic", "Helvetica Neue", Arial, sans-serif;
     font-size: clamp(1rem, 2.5vw, 1.2rem);
-  }
-  
-  /* ---------------------------------------
-     7) SVJ CONTAINERS
-  --------------------------------------- */
+}
 
-  .svg-container{
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 6473px;
-  }
+/* SVG Container */
+.svg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 6473px;
+  z-index: -1;
+}
+svg {
+  height: 100%;
+}
 
-  svg{
-    height: 100%;
-  }
+html, body {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none !important;
+}
+
+
+/**
+ BACK BUTTON
+ */
+ .back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 4px;
+  z-index: 100000001; /* Ensure it appears above other elements */
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+

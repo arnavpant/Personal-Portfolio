@@ -162,3 +162,24 @@ html, body {
 html::-webkit-scrollbar, body::-webkit-scrollbar {
   display: none !important;
 }
+
+/**
+ BACK BUTTON
+ */
+ .back-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 4px;
+  z-index: 100000001; /* Ensure it appears above other elements */
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
