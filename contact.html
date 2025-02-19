@@ -5,8 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact - Arnav Pant</title>
   <link rel="stylesheet" href="css/styles-contact.css" />
+  <link rel="stylesheet" href="css/cursor-effect.css" />
+
 </head>
 <body>
+
+  <a href="index.html#cards" class="back-button">Back</a>
+
+  <script>
+    // Create 50 circle divs dynamically for additional cursor effects
+    for (let i = 0; i < 50; i++) {
+      const circle = document.createElement('div');
+      circle.className = 'circle';
+      document.body.appendChild(circle);
+    }
+  </script>
+
   <!-- HERO SECTION -->
   <section class="hero" id="hero">
     <h1 class="page-header">Contact Me</h1>
@@ -32,5 +46,7 @@
   </section>
                    
   <script src="js/contact.js"></script>
+  <script src="js/cursor-effect.js"></script>
+
 </body>
 </html>
