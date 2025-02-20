@@ -1,4 +1,4 @@
-/* ---------------------------------------
+  /* ---------------------------------------
    1) Custom Fonts and Global Reset
 --------------------------------------- */
 @font-face {
@@ -87,8 +87,7 @@ body {
    4) ABOUT SECTION
 --------------------------------------- */
 .about {
-  opacity: 0;
-  transition: opacity 0.5s ease-out;
+  opacity: 1;
   padding: 3rem 1rem;
   background-color: transparent; /* was #111 */
   color: #fff;

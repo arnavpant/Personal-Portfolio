@@ -23,21 +23,19 @@
   <div id="particles-js"></div>
 
   <!-- HERO SECTION (fullscreen) -->
-  <!-- HERO SECTION (fullscreen) -->
-<section class="hero" id="hero">
-  <!-- Background random letters container -->
-  <div id="random-letters-container"></div>
+  <section class="hero" id="hero">
+    <!-- Background random letters container -->
+    <div id="random-letters-container"></div>
 
-  <!-- Container for the shuffling text (the lines you already have) -->
-  <div id="shuffle-container"></div>
-  
-  <!-- Scroll Indicator at the bottom center -->
-  <div class="scroll-indicator">
-    <span class="scroll-text">scroll down</span>
-    <span class="scroll-arrow">&#8595;</span>
-  </div>
-</section>
-
+    <!-- Container for the shuffling text (the lines you already have) -->
+    <div id="shuffle-container"></div>
+    
+    <!-- Scroll Indicator at the bottom center -->
+    <div class="scroll-indicator">
+      <span class="scroll-text">scroll down</span>
+      <span class="scroll-arrow">&#8595;</span>
+    </div>
+  </section>
 
   <!-- ABOUT ME SECTION -->
   <section class="about" id="about">
@@ -53,18 +51,40 @@
   <!-- CARDS SECTION -->
   <section class="cards-section" id="cards">
     <div class="cards-container">
-      <div class="card" id="card-projects" data-target="projects.html">
+      <!--  Using real anchor tags instead of divs.
+            Notice the onClick calls animateCard(event, '...') so we can do the same full-screen animation,
+            but the link is still "real," making the browser's Back button behave correctly. -->
+      <a 
+        href="projects.html"
+        class="card"
+        onClick="return animateCard(event, 'projects.html')"
+      >
         <h3>Projects</h3>
-      </div>
-      <div class="card" id="card-interests" data-target="interests.html">
+      </a>
+
+      <a 
+        href="interests.html"
+        class="card"
+        onClick="return animateCard(event, 'interests.html')"
+      >
         <h3>Interests</h3>
-      </div>
-      <div class="card" id="card-resume" data-target="resume.html">
+      </a>
+
+      <a 
+        href="resume.html"
+        class="card"
+        onClick="return animateCard(event, 'resume.html')"
+      >
         <h3>Resume</h3>
-      </div>
-      <div class="card" id="card-contact" data-target="contact.html">
+      </a>
+
+      <a 
+        href="contact.html"
+        class="card"
+        onClick="return animateCard(event, 'contact.html')"
+      >
         <h3>Contact Me</h3>
-      </div>
+      </a>
     </div>
   </section>
 
@@ -141,6 +161,7 @@
     });
   </script>
 
+  <!-- Our main script -->
   <script src="js/main.js"></script>
 </body>
 </html>
