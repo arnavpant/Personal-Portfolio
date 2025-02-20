@@ -5,52 +5,141 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Arnav Pant - Portfolio</title>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Ensure the particles container fills the entire page and is behind everything */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  </style>
 </head>
 <body>
 
+  <!-- Particles.js Container (Background for Entire Page) -->
+  <div id="particles-js"></div>
+
   <!-- HERO SECTION (fullscreen) -->
-  <section class="hero" id="hero">
-    <!-- Container for the shuffling text -->
-    <div id="shuffle-container"></div>
-    <!-- Scroll Indicator at the bottom center -->
-    <div class="scroll-indicator">
-      <span class="scroll-text">scroll down</span>
-      <span class="scroll-arrow">&#8595;</span>
+  <!-- HERO SECTION (fullscreen) -->
+<section class="hero" id="hero">
+  <!-- Background random letters container -->
+  <div id="random-letters-container"></div>
+
+  <!-- Container for the shuffling text (the lines you already have) -->
+  <div id="shuffle-container"></div>
+  
+  <!-- Scroll Indicator at the bottom center -->
+  <div class="scroll-indicator">
+    <span class="scroll-text">scroll down</span>
+    <span class="scroll-arrow">&#8595;</span>
+  </div>
+</section>
+
+
+  <!-- ABOUT ME SECTION -->
+  <section class="about" id="about">
+    <div class="about-content">
+      <img src="images/Arnav.jpeg" alt="Arnav Pant" class="about-image">
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p>Hello, I'm Arnav Pant, a Computer Science major at Virginia Tech. I love coding, building interactive experiences, and exploring innovative ideas. Welcome to my personal portfolio!</p>
+      </div>
     </div>
   </section>
 
-<!-- ABOUT ME SECTION -->
-<section class="about" id="about">
-  <div class="about-content">
-    <img src="images/Arnav.jpeg" alt="Arnav Pant" class="about-image">
-    <div class="about-text">
-      <h2>About Me</h2>
-      <p>Hello, I'm Arnav Pant, a Computer Science major at Virginia Tech. I love coding, building interactive experiences, and exploring innovative ideas. Welcome to my personal portfolio!</p>
+  <!-- CARDS SECTION -->
+  <section class="cards-section" id="cards">
+    <div class="cards-container">
+      <div class="card" id="card-projects" data-target="projects.html">
+        <h3>Projects</h3>
+      </div>
+      <div class="card" id="card-interests" data-target="interests.html">
+        <h3>Interests</h3>
+      </div>
+      <div class="card" id="card-resume" data-target="resume.html">
+        <h3>Resume</h3>
+      </div>
+      <div class="card" id="card-contact" data-target="contact.html">
+        <h3>Contact Me</h3>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CARDS SECTION -->
-<section class="cards-section" id="cards">
-  <div class="cards-container">
-    <div class="card" id="card-projects" data-target="projects.html">
-      <h3>Projects</h3>
-    </div>
-    <div class="card" id="card-interests" data-target="interests.html">
-      <h3>Interests</h3>
-    </div>
-    <div class="card" id="card-resume" data-target="resume.html">
-      <h3>Resume</h3>
-    </div>
-    <div class="card" id="card-contact" data-target="contact.html">
-      <h3>Contact Me</h3>
-    </div>
-  </div>
-</section>
-
-
-
-
+  <!-- Include particles.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <!-- Initialize particles.js -->
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false
+        },
+        "size": {
+          "value": 3,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out"
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "repulse": {
+            "distance": 200
+          },
+          "push": {
+            "particles_nb": 4
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
 
   <script src="js/main.js"></script>
 </body>

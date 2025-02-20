@@ -28,16 +28,15 @@
   box-sizing: border-box;
 }
 
+/* Change body background to transparent so particles show through */
 body {
   font-family: "GinesoCondMedium", "Helvetica Neue", Arial, sans-serif;
-  background-color: #111; /* Dark background */
+  background-color: #111; /* was #111 */
   color: #333;
 }
 
 /* ---------------------------------------
    2) HERO SECTION
-   - Full-screen, centered content with a relative position
-     to position the scroll indicator absolutely.
 --------------------------------------- */
 .hero {
   position: relative;
@@ -48,18 +47,17 @@ body {
   width: 100%;
   text-align: center;
   transition: transform 0.3s ease-out;
+  background: transparent; /* remove opaque background */
 }
 
 /* Container for shuffling text */
 #shuffle-container {
   display: inline-block;
+  z-index: 2;
 }
 
 /* ---------------------------------------
    3) SCROLL INDICATOR
-   - Positioned at the bottom center of the hero section
-   - Uses the same (normal) font styling
-   - Has a subtle bounce animation
 --------------------------------------- */
 .scroll-indicator {
   position: absolute;
@@ -68,7 +66,7 @@ body {
   transform: translateX(-50%);
   text-align: center;
   font-size: 1.5rem;
-  color: #7f7f7f; /* off-white, matching normal text */
+  color: #7f7f7f;
   cursor: pointer;
   animation: bounce 2s infinite;
 }
@@ -87,36 +85,34 @@ body {
 
 /* ---------------------------------------
    4) ABOUT SECTION
-   - Same background as hero for a seamless transition
-   - Initially hidden (opacity: 0) and will fade in on scroll
 --------------------------------------- */
 .about {
   opacity: 0;
   transition: opacity 0.5s ease-out;
   padding: 3rem 1rem;
-  background-color: #111; /* Same dark background */
+  background-color: transparent; /* was #111 */
   color: #fff;
 }
 
 .about-content {
   width: 100%;
   display: flex;
-  flex-direction: row; /* Horizontal layout */
+  flex-direction: row;
   align-items: center;
-  justify-content: flex-start; /* Align to left */
-  gap: 2rem; /* Space between image and text */
-  max-width: 1200px; /* Optionally restrict max width */
-  margin: 0 auto; /* Center the container horizontally */
+  justify-content: flex-start;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .about-image {
-  width: 40%; /* Adjust percentage as needed */
+  width: 40%;
   height: auto;
   border-radius: 10px;
 }
 
 .about-text {
-  width: 60%; /* Adjust as needed */
+  width: 60%;
 }
 
 .about-text h2 {
@@ -138,7 +134,6 @@ body {
   margin: 1rem 0;
 }
 
-/* Normal lines: responsive font-size, off-white color */
 .line.normal {
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   color: #7f7f7f;
@@ -146,7 +141,6 @@ body {
   font-family: "GinesoCondMedium", "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Highlight line ("Arnav Pant"): responsive and pure white */
 .line.highlight {
   font-family: "GinesoCondBlack", "Helvetica Neue", Arial, sans-serif;
   font-size: clamp(8rem, 10vw, 10rem);
@@ -154,26 +148,21 @@ body {
   line-height: 100%;
 }
 
-/* VT line: for "Virginia Tech" with double border (white and black) */
 .line.VT {
   font-family: "acherus_grotesque_-_extrabold_italic", "Helvetica Neue", Arial, sans-serif;
   font-size: clamp(3rem, 4vw, 4rem);
-  color: #CF4420; /* Base fill color (can adjust if needed) */
+  color: #CF4420;
   line-height: 100%;
-  /* Double border using text-shadow: first white, then black */
-  -webkit-text-stroke: 0; /* disable default stroke */
+  -webkit-text-stroke: 0;
   text-shadow:
-  4px 4px 0 #880000,
-     4px 4px 0 #880000,
-    4px  4px 0 #880000,
-    4px  4px 0 #880000,
-    /* white border */
+    4px 4px 0 #880000,
+    4px 4px 0 #880000,
+    4px 4px 0 #880000,
+    4px 4px 0 #880000,
     6px 6px 0 #fff,
-     6px 6px 0 #fff,
-    6px  6px 0 #fff,
-     6px  6px 0 #fff;
-    /* black border */
-    
+    6px 6px 0 #fff,
+    6px 6px 0 #fff,
+    6px 6px 0 #fff;
 }
 
 /* ---------------------------------------
@@ -185,11 +174,11 @@ body {
 }
 
 /* ---------------------------------------
-   CARDS SECTION
+   7) CARDS SECTION
 --------------------------------------- */
 .cards-section {
   padding: 3rem 1rem;
-  background-color: #111; /* Same dark background */
+  background-color: transparent; /* was #111 */
   color: #fff;
 }
 
@@ -203,10 +192,10 @@ body {
 }
 
 .card {
-  background-color: #111; /* Updated to match main page background */
+  background-color: transparent; /* was #111 */
   border-radius: 20px;
   padding: 2rem;
-  flex: 1 1 calc(25% - 2rem); /* Four cards per row on large screens */
+  flex: 1 1 calc(25% - 2rem);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
@@ -229,7 +218,6 @@ body {
 /* ---------------------------------------
    SCROLLBAR SETTINGS
 --------------------------------------- */
-
 html, body {
   -ms-overflow-style: none !important;
   scrollbar-width: none !important;
@@ -239,3 +227,25 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
   display: none !important;
 }
 
+
+/* Container for random letters that fill the hero area */
+#random-letters-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* So letters won't overflow the hero */
+  pointer-events: none; /* So they don't block clicks */
+  z-index: 1; /* Ensure they're above the background but behind your shuffle text if needed */
+}
+
+/* Random letter styling */
+.random-letter {
+  position: absolute; /* So we can place them at random positions */
+  font-size: 1rem;    /* Adjust as needed */
+  color: #7f7f7f;     /* Or #fff, #999, etc. */
+  opacity: 1;
+  transition: opacity 1s ease; /* For smooth disappearance */
+  user-select: none;  /* Prevent text selection */
+}
