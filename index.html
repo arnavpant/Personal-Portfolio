@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Arnav Pant - Portfolio</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/cursor-effect.css" />
   <style>
     /* Ensure the particles container fills the entire page and is behind everything */
     #particles-js {
@@ -18,6 +19,14 @@
   </style>
 </head>
 <body>
+
+  <script>
+    for (let i = 0; i < 50; i++) {
+      const circle = document.createElement('div');
+      circle.className = 'circle';
+      document.body.appendChild(circle);
+    }
+  </script>
 
   <!-- Particles.js Container (Background for Entire Page) -->
   <div id="particles-js"></div>
@@ -163,5 +172,7 @@
 
   <!-- Our main script -->
   <script src="js/main.js"></script>
+  <script src="js/cursor-effect.js"></script>
+
 </body>
 </html>
