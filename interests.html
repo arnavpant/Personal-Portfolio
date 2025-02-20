@@ -4,17 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Interests - Arnav Pant</title>
+  <!-- Link to your existing CSS file -->
   <link rel="stylesheet" href="css/styles-interests.css" />
   <link rel="stylesheet" href="css/cursor-effect.css" />
-
 </head>
 <body>
 
+  <!-- Particles Container (behind everything) -->
+  <div id="particles-js" style="position: fixed; top:0; left:0; width:100%; height:100%; z-index:-1;"></div>
+
+  <!-- Back Button -->
   <a href="index.html#cards" class="back-button">Back</a>
 
-
+  <!-- Additional cursor effects (50 circle divs) -->
   <script>
-    // Create 50 circle divs dynamically for additional cursor effects
     for (let i = 0; i < 50; i++) {
       const circle = document.createElement('div');
       circle.className = 'circle';
@@ -33,8 +36,6 @@
 
   <!-- INTERESTS CONTENT SECTION -->
   <section class="content">
-    
-
     <!-- Interest 1: Arsenal Football Club -->
     <article class="interest">
       <div class="interest-content">
@@ -45,8 +46,8 @@
           <h2>Arsenal Football Club</h2>
           <p>
             I've been an Arsenal fan since 2017, when my high school friends got me on board. Supporting the club has been a rollercoaster, but there’s nothing quite like the excitement of watching them play. 
-            My favorite moment was the legendary **5-1 victory in 2025**, where we absolutely demolished them! 
-            My favorite player is **Bukayo Saka**, our starboy, who represents everything great about Arsenal. I follow the club across social media and never miss a match, whether it’s at home or on the road. 
+            My favorite moment was the legendary <strong>5-1 victory in 2025</strong>, where we absolutely demolished them!
+            My favorite player is <strong>Bukayo Saka</strong>, our starboy, who represents everything great about Arsenal. I follow the club across social media and never miss a match, whether it’s at home or on the road.
             Gunners for life! 🔴⚪
           </p>
         </div>
@@ -56,13 +57,13 @@
     <!-- Interest 2: Playing Football -->
     <article class="interest">
       <div class="interest-content">
-        <div class="interest-image">
-        </div>
+        <!-- No image for football here -->
+        <div class="interest-image"></div>
         <div class="interest-description">
           <h2>Playing Football</h2>
           <p>
-            While I don’t get to play as often as I’d like, I still hit the pitch every couple of weeks. I usually play as a Center-Back (CB), leading the defense and enjoying the strategic aspect of the game. 
-            I play casually, but football has always been a big part of my life. I started off as a Real Madrid fan before Arsenal won me over (though I still support and follow their matches), and since then, my love for the game has only grown. 
+            While I don’t get to play as often as I’d like, I still hit the pitch every couple of weeks. I usually play as a Center-Back (CB), leading the defense and enjoying the strategic aspect of the game.
+            I play casually, but football has always been a big part of my life. I started off as a Real Madrid fan before Arsenal won me over (though I still support and follow their matches), and since then, my love for the game has only grown.
             There’s something about the intensity of the sport that keeps me hooked.
           </p>
         </div>
@@ -78,23 +79,93 @@
         <div class="interest-description">
           <h2>Travelling</h2>
           <p>
-            I love travelling and experiencing different parts of the world. One of my favorite places I've been to is **Singapore**—a perfect blend of nature and modern architecture. The clean streets, futuristic skyline, 
-            and incredible food scene made it an unforgettable experience. But my **dream travel destination is Japan**.
+            I love travelling and experiencing different parts of the world. One of my favorite places I've been to is <strong>Singapore</strong>—a perfect blend of nature and modern architecture. The clean streets, futuristic skyline, 
+            and incredible food scene made it an unforgettable experience. But my <strong>dream travel destination is Japan</strong>.
           </p>
           <p>
-            Japan offers a **unique mix of tradition and cutting-edge modernity**. Whether it’s the high-energy vibe of **Tokyo**, the cultural richness of **Kyoto**, or the peaceful landscapes of the **Japanese countryside**, 
-            there's something for every traveler. I’d love to explore the cherry blossom season, try authentic sushi in Tsukiji, and maybe even catch a J-League football match. Travelling isn’t just about sightseeing for me—it’s about **immersing myself in different cultures, trying new cuisines, and discovering the unknown**.
+            Japan offers a unique mix of tradition and cutting-edge modernity. Whether it’s the high-energy vibe of <strong>Tokyo</strong>, the cultural richness of <strong>Kyoto</strong>, or the peaceful landscapes of the Japanese countryside, 
+            there's something for every traveler. I’d love to explore the cherry blossom season, try authentic sushi in Tsukiji, and maybe even catch a J-League football match. Travelling isn’t just about sightseeing for me—it’s about immersing myself in different cultures, trying new cuisines, and discovering the unknown.
           </p>
         </div>
       </div>
     </article>
   </section>
 
-  <!-- Intersection Observer to trigger animation on scroll -->
+  <!-- JS and Particles -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="js/interests.js"></script>
   <script src="js/cursor-effect.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false
+        },
+        "size": {
+          "value": 3,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out"
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "repulse": {
+            "distance": 200
+          },
+          "push": {
+            "particles_nb": 4
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
 
 </body>
 </html>

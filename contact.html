@@ -7,13 +7,28 @@
   <link rel="stylesheet" href="css/styles-contact.css" />
   <link rel="stylesheet" href="css/cursor-effect.css" />
 
+  <style>
+    /* Particles container behind everything */
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+  </style>
 </head>
 <body>
 
+  <!-- Particles container -->
+  <div id="particles-js"></div>
+
+  <!-- Back Button -->
   <a href="index.html#cards" class="back-button">Back</a>
 
+  <!-- Additional cursor circles -->
   <script>
-    // Create 50 circle divs dynamically for additional cursor effects
     for (let i = 0; i < 50; i++) {
       const circle = document.createElement('div');
       circle.className = 'circle';
@@ -44,9 +59,78 @@
       </div>
     </div>
   </section>
-                   
+
+  <!-- Scripts -->
   <script src="js/contact.js"></script>
   <script src="js/cursor-effect.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": { "value": "#ffffff" },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": false
+        },
+        "size": {
+          "value": 3,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out"
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "repulse": {
+            "distance": 200
+          },
+          "push": {
+            "particles_nb": 4
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
 
 </body>
 </html>

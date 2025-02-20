@@ -4,57 +4,57 @@
    - Per-letter delay is computed as: letterDelay = 4000ms / (number of characters in the line)
 ------------------------------- */
 document.addEventListener("DOMContentLoaded", function() {
-  /* 1) CREATE RANDOM LETTERS */
-  const randomLettersContainer = document.getElementById("random-letters-container");
-  const lettersSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  // /* 1) CREATE RANDOM LETTERS */
+  // const randomLettersContainer = document.getElementById("random-letters-container");
   
-  // Adjust these values as needed
-  const NUM_LETTERS = 100;         // how many letters to generate
-  const HERO_WIDTH = randomLettersContainer.offsetWidth;
-  const HERO_HEIGHT = randomLettersContainer.offsetHeight;
-  const SHUFFLE_DURATION = 3000;   // total shuffle time in ms
+  // // Adjust these values as needed
+  // const NUM_LETTERS = 100;         // how many letters to generate
+  // const HERO_WIDTH = randomLettersContainer.offsetWidth;
+  // const HERO_HEIGHT = randomLettersContainer.offsetHeight;
+  // const SHUFFLE_DURATION = 3000;   // total shuffle time in ms
 
-  // Create each letter span at a random position
-  for (let i = 0; i < NUM_LETTERS; i++) {
-    const span = document.createElement("span");
-    span.className = "random-letter";
-    // Start with a random character
-    span.textContent = lettersSet[Math.floor(Math.random() * lettersSet.length)];
+  // // Create each letter span at a random position
+  // for (let i = 0; i < NUM_LETTERS; i++) {
+  //   const span = document.createElement("span");
+  //   span.className = "random-letter";
+  //   // Start with a random character
+  //   span.textContent = lettersSet[Math.floor(Math.random() * lettersSet.length)];
     
-    // Random position
-    const x = Math.random() * HERO_WIDTH;
-    const y = Math.random() * HERO_HEIGHT;
+  //   // Random position
+  //   const x = Math.random() * HERO_WIDTH;
+  //   const y = Math.random() * HERO_HEIGHT;
     
-    span.style.left = x + "px";
-    span.style.top = y + "px";
+  //   span.style.left = x + "px";
+  //   span.style.top = y + "px";
     
-    // Optional: random font size
-    span.style.fontSize = (0.8 + Math.random() * 2) + "rem";
+  //   // Optional: random font size
+  //   span.style.fontSize = (0.8 + Math.random() * 2) + "rem";
     
-    randomLettersContainer.appendChild(span);
+  //   randomLettersContainer.appendChild(span);
 
-    // For each letter, shuffle it until the duration ends
-    const startTime = Date.now();
-    const shuffleInterval = setInterval(() => {
-      const elapsed = Date.now() - startTime;
-      if (elapsed >= SHUFFLE_DURATION) {
-        clearInterval(shuffleInterval);
-        // Fade out or remove the letter
-        span.style.opacity = 0;
-        // Remove from DOM after fade-out
-        setTimeout(() => {
-          if (span.parentNode) {
-            span.parentNode.removeChild(span);
-          }
-        }, 1000); // match the CSS transition time
-      } else {
-        // Shuffle character
-        span.textContent = lettersSet[Math.floor(Math.random() * lettersSet.length)];
-      }
-    }, 50); // shuffle every 50ms
-  }
+  //   // For each letter, shuffle it until the duration ends
+  //   const startTime = Date.now();
+  //   const shuffleInterval = setInterval(() => {
+  //     const elapsed = Date.now() - startTime;
+  //     if (elapsed >= SHUFFLE_DURATION) {
+  //       clearInterval(shuffleInterval);
+  //       // Fade out or remove the letter
+  //       span.style.opacity = 0;
+  //       // Remove from DOM after fade-out
+  //       setTimeout(() => {
+  //         if (span.parentNode) {
+  //           span.parentNode.removeChild(span);
+  //         }
+  //       }, 1000); // match the CSS transition time
+  //     } else {
+  //       // Shuffle character
+  //       span.textContent = lettersSet[Math.floor(Math.random() * lettersSet.length)];
+  //     }
+  //   }, 50); // shuffle every 50ms
+  // }
 
 // All possible characters for shuffling
+const lettersSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
 // Define lines with text and style. (No letterDelay property needed now.)
 const lines = [
