@@ -21,6 +21,7 @@
 <body>
 
   <script>
+    // Create 50 cursor-effect circles
     for (let i = 0; i < 50; i++) {
       const circle = document.createElement('div');
       circle.className = 'circle';
@@ -36,7 +37,7 @@
     <!-- Background random letters container -->
     <div id="random-letters-container"></div>
 
-    <!-- Container for the shuffling text (the lines you already have) -->
+    <!-- Container for the shuffling text -->
     <div id="shuffle-container"></div>
     
     <!-- Scroll Indicator at the bottom center -->
@@ -60,9 +61,7 @@
   <!-- CARDS SECTION -->
   <section class="cards-section" id="cards">
     <div class="cards-container">
-      <!--  Using real anchor tags instead of divs.
-            Notice the onClick calls animateCard(event, '...') so we can do the same full-screen animation,
-            but the link is still "real," making the browser's Back button behave correctly. -->
+      <!-- Using anchor tags with an inline onClick call -->
       <a 
         href="projects.html"
         class="card"

@@ -1,5 +1,8 @@
 /* main.js */
 
+// Global variable to hold the redirect timeout
+let redirectTimeout = null;
+
 document.addEventListener("DOMContentLoaded", function() {
   // SHUFFLING TEXT CODE
   const lettersSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -11,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     { text: "And THIS is my personal portfolio", style: "normal" }
   ];
 
-  const totalDuration = 2500; // 2.5s
+  const totalDuration = 2500; // 2.5 seconds
   const shuffleContainer = document.getElementById("shuffle-container");
 
   lines.forEach((line) => {
@@ -63,8 +66,6 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }, updateInterval);
   });
-
-  
 });
 
 /**
@@ -77,6 +78,8 @@ function animateCard(e, url) {
   
   // Clone the anchor (which looks like a card)
   const cardClone = card.cloneNode(true);
+  // Mark the clone so we can later remove it if necessary
+  cardClone.classList.add("card-clone");
 
   // Get the card's current position and size
   const rect = card.getBoundingClientRect();
@@ -92,13 +95,11 @@ function animateCard(e, url) {
   cardClone.style.zIndex = 10000;
   cardClone.style.transition = 'all 0.8s cubic-bezier(0.42, 0, 1, 1)';
 
-  // Append the clone to the body
+  // Append the clone to the body and force reflow
   document.body.appendChild(cardClone);
-
-  // Force reflow
   cardClone.getBoundingClientRect();
 
-  // Animate to full-screen
+  // Animate the clone to fill the viewport
   cardClone.style.top = '0';
   cardClone.style.left = '0';
   cardClone.style.width = '100vw';
@@ -119,17 +120,34 @@ function animateCard(e, url) {
     heading.style.whiteSpace = 'nowrap';
   }
 
-  // When transition finishes, navigate
+  // When the transition ends, navigate to the target page.
   cardClone.addEventListener('transitionend', function(ev) {
     if (ev.propertyName === 'width') {
       window.location.href = url;
     }
   });
 
-  // Fallback: navigate after 900ms if transitionend isn't fired
-  setTimeout(() => {
+  // Fallback: navigate after 900ms if transitionend doesn't fire.
+  redirectTimeout = setTimeout(() => {
     window.location.href = url;
   }, 900);
 
-  return false; // Prevent anchor default
+  return false; // Prevent default navigation
 }
+
+// Listen for the pageshow event. If the page is restored from the bfcache,
+// cancel any pending redirect and remove any clone elements.
+window.addEventListener("pageshow", function(event) {
+  if (event.persisted) {
+    if (redirectTimeout) {
+      clearTimeout(redirectTimeout);
+      redirectTimeout = null;
+    }
+    const clones = document.querySelectorAll('.card-clone');
+    clones.forEach(clone => {
+      if (clone.parentNode) {
+        clone.parentNode.removeChild(clone);
+      }
+    });
+  }
+});
