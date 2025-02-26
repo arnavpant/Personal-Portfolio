@@ -4,6 +4,9 @@ Just a portfolio I wanted to make to show off my FrontEnd skills with HTTP, CSS 
 
 The link on the left handside of the project will direct you to my website but you can also click the link below.
 
+arnavpant.github.io/Personal-Portfolio/
+
+
 ## Features
 
 - I have a particle effect in the background I created that is individually added to every file.
