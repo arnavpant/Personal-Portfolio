@@ -1,3 +1,5 @@
+## Personal Portfolio
+
 Just a portfolio I wanted to make to show off my FrontEnd skills with HTTP, CSS and JS.
 
 ## Live Demo
